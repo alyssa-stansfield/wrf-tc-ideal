@@ -1,0 +1,124 @@
+ &time_control
+ run_days                            = 0,
+ run_hours                           = 6,
+ run_minutes                         = 0,
+ run_seconds                         = 0,
+ start_year                          = 2007,2007,2007,
+ start_month                         = 09,09,09,
+ start_day                           = 7,7,7,
+ start_hour                          = 18,18,18,
+ start_minute                        = 00,00,00,
+ start_second                        = 00,00,00,
+ end_year                            = 2007,2007,2007,
+ end_month                           = 09,09,09
+ end_day                             = 8,8,8,
+ end_hour                            = 0,0,0,
+ end_minute                          = 0,0,0,
+ end_second                          = 00,00,00,
+ history_interval                    = 180,180,15,
+ frames_per_outfile                  = 1,1,1
+ restart                             = .true.,
+ restart_interval                    = 180
+ io_form_history                     = 2
+ io_form_restart                     = 2
+ io_form_input                       = 2
+ io_form_boundary                    = 2
+ /
+
+ &domains
+ time_step                           = 5,
+ time_step_fract_num                 = 0,
+ time_step_fract_den                 = 1,
+ max_dom                             = 3,
+ s_we                                = 1,1,1
+ e_we                                = 400,400,508
+ s_sn                                = 1,1,1
+ e_sn                                = 400,400,508
+ s_vert                              = 1,1,1
+ e_vert                              = 60,60,60,
+ dx                                  = 15000,5000,1670
+ dy                                  = 15000,5000,1670
+ ztop                                = 25000.,25000.,25000.,
+ grid_id			     = 1,2,3
+ parent_id			     = 0,1,2
+ parent_grid_ratio		     = 1,3,3
+ parent_time_step_ratio		     = 1,3,3
+ i_parent_start			     = 1,50,125,
+ j_parent_start			     = 1,150,100,
+ feedback 			     = 0,
+ vortex_interval		     = 5,5,5,
+ max_vortex_speed		     = 20,20,20,
+ corral_dist			     = 8,8,20,
+ track_level			     = 85000,
+ time_to_move			     = 15,
+ /
+
+ &physics
+ mp_physics                          = 28,28,28
+ use_aero_icbc			     = .false.,
+ aer_opt			     = 3,
+ use_mp_re			     = 1,
+ ra_lw_physics                       = 4,4,4,
+ ra_sw_physics                       = 4,4,4,
+ radt                                = 5,5,5,
+ sf_sfclay_physics                   = 1,1,1,
+ sf_surface_physics                  = 0,0,0,
+ bl_pbl_physics                      = 5,5,5,
+ bldt                                = 0,0,0,
+ cu_physics                          = 16,16,0,
+ cudt                                = 0,0,0,
+ isftcflx                            = 2,
+ path_to_files			     = ".",
+ do_radar_ref			     = 1,
+ prec_acc_dt			     = 360,15,15
+ /
+
+ &fdda
+ /
+
+ &dynamics
+ hybrid_opt                          = 0, 
+ rk_ord                              = 3,
+ diff_opt                            = 2,2,2,
+ km_opt                              = 4,4,4,
+ damp_opt                            = 2,
+ dampcoef                            = .003,
+ zdamp                               = 5000.,
+ w_damping			     = 1,
+ epssm 				     = 0.2, 0.2, 0.2,
+ rad_nudge                           = 0,
+ khdif                               = 300,
+ kvdif                               = 1,
+ smdiv                               = 0.1,
+ emdiv                               = 0.01,
+ epssm                               = 0.1,
+ time_step_sound                     = 6,6,6,
+ h_mom_adv_order                     = 5,5,5,
+ v_mom_adv_order                     = 3,3,3,
+ h_sca_adv_order                     = 5,5,5,
+ v_sca_adv_order                     = 3,3,3,
+ mix_full_fields                     = .true.,.true.,.true.,
+ non_hydrostatic                     = .true.,.true.,.true.,
+ pert_coriolis			     = .true.,.true.,.false.,
+ /
+
+ &bdy_control
+ periodic_x                          = .true.,
+ symmetric_xs                        = .false.,
+ symmetric_xe                        = .false.,
+ open_xs                             = .false., 
+ open_xe                             = .false.,
+ periodic_y                          = .true.,
+ symmetric_ys                        = .false.,
+ symmetric_ye                        = .false.,
+ open_ys                             = .false.,
+ open_ye                             = .false.,
+ /
+
+ &grib2
+ /
+
+ &namelist_quilt
+ nio_tasks_per_group = 0,
+ nio_groups = 1,
+ /
